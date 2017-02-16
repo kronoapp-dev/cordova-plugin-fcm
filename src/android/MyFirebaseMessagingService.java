@@ -1,5 +1,6 @@
 package com.gae.scaffolder.plugin;
 
+import android.app.Notification;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Context;
@@ -80,6 +81,13 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
         NotificationManager notificationManager =
                 (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
 
-        notificationManager.notify(0 /* ID of notification */, notificationBuilder.build());
+        Notification mNotification = notificationBuilder.build();
+
+        /*
+         * Sounds repear forever
+        */
+        mNotification.flags |= Notification.FLAG_INSISTENT;
+ 
+        notificationManager.notify(0 /* ID of notification */, mNotification);
     }
 }
