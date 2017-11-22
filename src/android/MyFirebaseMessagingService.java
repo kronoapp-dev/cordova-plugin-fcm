@@ -82,12 +82,11 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
                 (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
 
         Notification mNotification = notificationBuilder.build();
-
+ 
         /*
          * Sounds repear forever
         */
-        mNotification.flags |= Notification.FLAG_INSISTENT;
- 
+        mNotification.flags |= Notification.FLAG_INSISTENT;  
         notificationManager.notify(0 /* ID of notification */, mNotification);
     }
 }
